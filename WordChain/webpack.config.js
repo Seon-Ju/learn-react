@@ -1,9 +1,9 @@
-const path = require('path'); // 노드에서 경로를 쉽게 조작할 수 있도록 하는 것
+const path = require('path');
 
 module.exports = {
     name: 'word-chain-setting',
-    mode: 'development', // 실서비스에서는 production으로 변경
-    devtool: 'eval', // 빠르게 하겠다는 말
+    mode: 'development',
+    devtool: 'eval',
     resolve: {
         extensions: ['.js', '.jsx'],
     },
@@ -14,8 +14,8 @@ module.exports = {
 
     module: {
         rules: [{
-            test: /\.jsx?/, // js와 jsx 파일에 rule을 적용하겠다는 정규표현식
-            loader: 'babel-loader', // 어떤 rule? babel!
+            test: /\.jsx?/,
+            loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env', '@babel/preset-react'],
                 plugins: ['@babel/plugin-proposal-class-properties'],
@@ -24,7 +24,7 @@ module.exports = {
     },
 
     output: { // output
-        path: path.join(__dirname, 'dist'), // dirname은 현재 폴더를 가리키고, dist는 현재 폴더 안에 들어있는 폴더
+        path: path.join(__dirname, 'dist'),
         filename: 'app.js',
     }
 };
