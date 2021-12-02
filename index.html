@@ -2,27 +2,32 @@
     <head>
         <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     </head>
     <body>
         <div id="root"></div> <!--결과: <div id="root"><button>Like</button></div>-->
-        <script>
-            // 태그 생성
-            const e = React.createElement;
+        <script type="text/babel">
 
             // 컴포넌트 생성
             class LikeButton extends React.Component {
                 constructor(props) {
                     super(props);
+                    this.state = {
+                        liked: false,
+                    };
                 }
                 // 어떻게 화면에 표시할 것인지 결정하는 메소드
+                // <button>Like</button>이라는 태그를 만들겠다
                 render() {
-                    return e('button', null, 'Like'); // <button>Like</button>이라는 태그를 만들겠다
+                    return <button type="submit" onClick={() => { this.setState({liked: true})}}>
+                    {this.state.liked ? 'Liked' : 'Like'}
+                    </button>;
                 }
             }
         </script>
-        <script>
+        <script type="text/babel">
             // LikeButton을 실제 Dom의 root 안에 붙이겠다
-            ReactDOM.render(e(LikeButton), document.querySelector('#root'));
+            ReactDOM.render(<div><LikeButton/><LikeButton/><LikeButton/><LikeButton/></div>, document.querySelector('#root'));
         </script>
     </body>
 </html>
