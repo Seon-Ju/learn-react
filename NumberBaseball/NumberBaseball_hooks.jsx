@@ -1,6 +1,7 @@
 const React = require('react');
-const { useRef, useState } = require('react');
-const Try = require('./Try');
+const { useRef, useState, memo } = React;
+
+const TryHooks = require('./Try_hooks');
 
 function getNumberse() { // 랜덤 숫자 네 개를 겹치지 않게 뽑는 함수
     const candidate = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -12,7 +13,7 @@ function getNumberse() { // 랜덤 숫자 네 개를 겹치지 않게 뽑는 함
     return array;
 }
 
-const NumberBaseball = () => {
+const NumberBaseballHooks = memo(() => {
     const [ result, setResult ] = useState('');
     const [ value, setValue ] = useState('');
     const [ answer, setAnswer ] = useState(getNumberse());
@@ -80,11 +81,11 @@ const NumberBaseball = () => {
             <div>시도: {tries.length}</div>
             <ul>
                 {tries.map((v, i) =>
-                    <Try key={'${i+1}차 시도: '} v={v}/>
+                    <TryHooks key={'${i+1}차 시도: '} v={v}/>
                 )}
             </ul>
         </>
     );
-}
+})
 
-module.exports = NumberBaseball;
+module.exports = NumberBaseballHooks;

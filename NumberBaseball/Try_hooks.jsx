@@ -1,6 +1,7 @@
 const React = require('react');
+const { memo } = React;
 
-const Try = (({ v }) => {
+const TryHooks = memo(({ v }) => {
     return (
         <li>
             <div>{v.try}</div>
@@ -9,4 +10,4 @@ const Try = (({ v }) => {
     );
 });
 
-module.exports = Try;
+module.exports = TryHooks;
