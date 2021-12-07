@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 
-const RockScissorsPaper = require('./RockScissorsPaper');
+const RockScissorsPaperHooks = require('./RockScissorsPaperHooks');
 
-ReactDom.render(<RockScissorsPaper />, document.querySelector('#root'));
+ReactDom.render(<RockScissorsPaperHooks />, document.querySelector('#root'));
