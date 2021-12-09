@@ -1,6 +1,6 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 
-const Lotto = require('./Lotto');
+const LottoHooks = require('./LottoHooks');
 
-ReactDom.render(<Lotto/>, document.querySelector('#root'));
+ReactDom.render(<LottoHooks/>, document.querySelector('#root'));
